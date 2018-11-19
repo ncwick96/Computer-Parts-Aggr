@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="NeweggAPIResponse">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="IsSuccess">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="true"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="SellerID" type="xs:string"/>
+        <xs:element name="OperationType" type="xs:string"/>
+        <xs:element name="ResponseBody">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="PageInfo">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="TotalCount" type="xs:int"/>
+                    <xs:element name="TotalPageCount" type="xs:int"/>
+                    <xs:element name="PageSize" type="xs:int"/>
+                    <xs:element name="PageIndex" type="xs:int"/>
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="AddOrderInfoList">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="AddOrderInfo" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:all>
+                          <xs:element name="OrderNumber" type="xs:integer"/>
+                          <xs:element name="RecipientIDType" type="xs:string" minOccurs="0" />
+                          <xs:element name="RecipientIDNumber" type="xs:string" minOccurs="0" />
+                          <xs:element name="NISPOriginalInfo" minOccurs="0">
+                            <xs:complexType>
+                              <xs:all>
+                                <xs:element name="NISPOriFirstName" type="xs:string"/>
+                                <xs:element name="NISPOriLastName" type="xs:string"/>
+                                <xs:element name="NISPOriCompanyName" type="xs:string"/>
+                                <xs:element name="NISPOriAddress1" type="xs:string"/>
+                                <xs:element name="NISPOriAddress2" type="xs:string"/>
+                                <xs:element name="NISPOriCity" type="xs:string"/>
+                                <xs:element name="NISPOriState" type="xs:string"/>
+                                <xs:element name="NISPOriZipCode" type="xs:string"/>
+                                <xs:element name="NISPOriCountryCode" type="xs:string"/>
+                                <xs:element name="NISPOriPhoneNumber" type="xs:string"/>
+                              </xs:all>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="OriginalInputInfo">
+                            <xs:complexType>
+                              <xs:all>
+                                <xs:element name="OriginalFirstName" type="xs:string"/>
+                                <xs:element name="OriginalLastName" type="xs:string"/>
+                                <xs:element name="OriginalCompanyName" type="xs:string"/>
+                                <xs:element name="OriginalAddress1" type="xs:string"/>
+                                <xs:element name="OriginalAddress2" type="xs:string"/>
+                                <xs:element name="OriginalCity" type="xs:string"/>
+                                <xs:element name="OriginalState" type="xs:string"/>
+                                <xs:element name="OriginalZipCode" type="xs:string"/>
+                                <xs:element name="OriginalCountryCode" type="xs:string"/>
+                                <xs:element name="OriginalPhoneNumber" type="xs:string"/>
+                              </xs:all>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:all>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Memo" type="xs:string"/>
+        <xs:element name="ResponseDate" type="xs:string"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
