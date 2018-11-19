@@ -22,7 +22,8 @@ c.execute("CREATE TABLE IF NOT EXISTS Computer_Parts(id INTEGER PRIMARY KEY AUTO
 
 # Creates test entry to ensure things are going as they should be.
 c.execute("INSERT INTO Computer_Parts(Date, Class, Name, Model, Manufacturer, Quantity, Price, Site) "
-          "VALUES('11/9/18', 'RAM','Corsair 64gb RAM 3200', '224873', 'Corsair', '64','550.98', 'Amazon')")
+          "Values('11/9/18','RAM','Corsair 64gb RAM 3200','224873','Corsair','64','550.98','Amazon')")
+
 c.close()
 
 
@@ -38,7 +39,7 @@ eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"
 # Work in progress below
 
 #counter = 0
-#query = "#INSERT URL(S) HERE#"
+#query = "https://www.newegg.com/"
 #jsonpage = 0
 #try:
 #    contents = urllib.request.urlopen(query)
@@ -47,7 +48,7 @@ eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"
 #except:
 #    pass
 #    time.sleep(1)
-#data = json.dumps(jsonpage['data'])
+#data = json.dumps(jsonpage(c))
 #for i in data:
 #    conn.c(
 #        "INSERT INTO Computer_Parts(#VAR STUFF HERE#+#TABLE VALUES/DATA#)"
