@@ -7,6 +7,7 @@
 #                       https://github.com/RTCedu/CNA336/Spring2018/Sql.py
 #
 import mysql.connector
+import bs4
 import sys
 import json
 import urllib.request
