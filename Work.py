@@ -31,7 +31,7 @@ c.close()
 a = "RAM"; b = "Heat_Sink"; c = "CPU"; d = "PSU"; e = "Mother_Board"
 
 # Sites for db table, and var assignment for later processing
-eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"; bb = "Best_Buy"
+eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"
 # }
 
 # Runs with exit code 0, no errors, and now creates and writes to the db/table
