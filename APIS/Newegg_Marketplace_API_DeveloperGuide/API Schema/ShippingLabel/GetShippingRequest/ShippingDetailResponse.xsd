@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2007 sp1 (http://www.altova.com) by as13 (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="NeweggAPIResponse">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="IsSuccess" type="xs:boolean"/>
+        <xs:element name="OperationType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="GetShippingDetailResponse"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="SellerID" type="xs:string"/>
+        <xs:element name="ResponseBody">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="OrderNumber" type="xs:int"/>
+              <xs:element name="RequestList">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Request" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:all>
+                          <xs:element name="RequestID"/>
+                          <xs:element name="RequestDate" type="xs:string"/>
+                          <xs:element name="Shipment">
+                            <xs:complexType>
+                              <xs:all>
+                                <xs:element name="CustomerName" type="xs:string"/>
+                                <xs:element name="CustomerPhoneNumber" type="xs:string"/>
+                                <xs:element name="CustomerEmailAddress" type="xs:string"/>
+                                <xs:element name="ShipToAddress1" type="xs:string"/>
+                                <xs:element name="ShipToAddress2" type="xs:string"/>
+                                <xs:element name="ShipToCityName" type="xs:string"/>
+                                <xs:element name="ShipToStateCode" type="xs:string"/>
+                                <xs:element name="ShipToZipCode" type="xs:string"/>
+                                <xs:element name="ShipToCountryCode" type="xs:string"/>
+                                <xs:element name="ShippingCarrierCode">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                      <xs:annotation>
+                                        <xs:documentation>
+                                          100 – Newegg Partnered Carrier (UPS)
+										  200 – Newegg Partnered Carrier (FedEx)
+                                        </xs:documentation>
+                                      </xs:annotation>
+                                      <xs:enumeration value="100"/>
+									  <xs:enumeration value="200"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShippingServiceCode" minOccurs="0">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                      <xs:annotation>
+                                        <xs:documentation>
+                                        If ShippingCarrierCode == 100:
+										101 – UPS Ground
+										102 – UPS 3 Day Select
+										103 – UPS 2nd Day Air
+										104 – UPS Next Day Air Saver
+										105 - UPS Next Day Air
+										106 - UPS Worldwide Saver
+										  
+										If ShippingCarrierCode = 200:
+										201 – FedEx Ground
+										202 – FedEx Home Delivery
+										203 – FedEx Priority Overnight
+										204 – FedEx Express Saver
+										205 – FedEx 2Day
+										206 – FedEx Standard Overnight
+										207 – FedEx International Economy
+                                        </xs:documentation>
+                                      </xs:annotation>
+                                      <xs:enumeration value="101"/>
+                                      <xs:enumeration value="102"/>
+                                      <xs:enumeration value="103"/>
+                                      <xs:enumeration value="104"/>
+                                      <xs:enumeration value="105"/>
+									  <xs:enumeration value="106"/>
+									  <xs:enumeration value="201" />
+									  <xs:enumeration value="202" />
+									  <xs:enumeration value="203" />
+									  <xs:enumeration value="204" />
+									  <xs:enumeration value="205" />
+									  <xs:enumeration value="206" />
+									  <xs:enumeration value="207" />
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipmentStatus">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:enumeration value="ESTIMATING"/>
+                                      <xs:enumeration value="ESTIMATED"/>
+                                      <xs:enumeration value="ERROR_ESTIMATING"/>
+                                      <xs:enumeration value="CONFIRMING"/>
+                                      <xs:enumeration value="CONFIRMED"/>
+                                      <xs:enumeration value="ERROR_CONFIRMED"/>
+                                      <xs:enumeration value="VOIDING"/>
+                                      <xs:enumeration value="VOIDED"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ErrorMessage" type="xs:string" minOccurs="0"/>
+                                <xs:element name="ErrorCode" type="xs:string" minOccurs="0"/>
+                                <xs:element name="ShipDate" type="xs:string"/>
+                                <xs:element name="PartneredEstimate">
+                                  <xs:complexType>
+                                    <xs:all>
+                                      <xs:element name="BillableWeight" type="xs:decimal"/>
+                                      <xs:element name="EstimatedDeliveryDay" type="xs:string"/>
+                                      <xs:element name="EstimatedChargeAmount" type="xs:double"/>
+                                    </xs:all>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ShipFromFirstName">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="30"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromLastName">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="30"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromPhoneNumber">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="40"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromAddress1">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="100"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromAddress2" minOccurs="0">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="100"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromCityName">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="45"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromStateCode">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="50"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromZipCode">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="20"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ShipFromCountryCode">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="3"/>
+                                      <xs:minLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="PackageList">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Package" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:all>
+                                            <xs:element name="TrackingNumber" minOccurs="0"/>
+                                            <xs:element name="ItemList">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Item" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:all>
+                                                        <xs:element name="SellerPartNumber">
+                                                          <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                              <xs:maxLength value="40"/>
+                                                              <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                          </xs:simpleType>
+                                                        </xs:element>
+                                                        <xs:element name="Quantity">
+                                                          <xs:simpleType>
+                                                            <xs:restriction base="xs:int">
+                                                              <xs:minExclusive value="0"/>
+                                                            </xs:restriction>
+                                                          </xs:simpleType>
+                                                        </xs:element>
+                                                      </xs:all>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:all>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:all>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:all>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

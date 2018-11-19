@@ -10,17 +10,19 @@ import mysql.connector
 import sys
 import json
 import urllib.request
+import urllib3
+import urllib
 import os
 import time
 
 conn = mysql.connector.connect(user='root', password='', host='127.0.0.1', database='Computer_Parts')
 c = conn.cursor()
-c.execute("CREATE TABLE FIXTEST(id INTEGER PRIMARY KEY, Date TEXT, Class TEXT, Name TEXT, Model INTEGER, "
-          "Manufacturer TEXT, Quantity INTEGER, Price INTEGER, Site TEXT)")
+c.execute("CREATE TABLE IF NOT EXISTS Computer_Parts(id INTEGER PRIMARY KEY AUTO_INCREMENT, Date TEXT, "
+          "Class TEXT, Name TEXT, Model INTEGER,Manufacturer TEXT, Quantity INTEGER, Price INTEGER, Site TEXT)")
 
 # Creates test entry to ensure things are going as they should be.
-c.execute("INSERT INTO Computer_Parts VALUES(0, '11/9/18', 'RAM',"
-          " 'Corsair 64gb RAM 3200', '224873', 'Corsair', '64','550.98', 'Amazon')")
+c.execute("INSERT INTO Computer_Parts(Date, Class, Name, Model, Manufacturer, Quantity, Price, Site) "
+          "VALUES('11/9/18', 'RAM','Corsair 64gb RAM 3200', '224873', 'Corsair', '64','550.98', 'Amazon')")
 c.close()
 
 
@@ -29,24 +31,24 @@ c.close()
 a = "RAM"; b = "Heat_Sink"; c = "CPU"; d = "PSU"; e = "Mother_Board"
 
 # Sites for db table, and var assignment for later processing
-am = "Amazon"; bb = "Best_Buy"; f = "Frys"; ne = "New_Egg"
+eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"; bb = "Best_Buy"
 # }
 
 # Runs with exit code 0, no errors, and now creates and writes to the db/table
 # Work in progress below
 
-counter = 0
-query = "#INSERT URL(S) HERE#"
-jsonpage = 0
-try:
-    contents = urllib.request.urlopen(query)
-    response = contents.read()
-    jsonpage = json.loads(response)
-except:
-    pass
-    time.sleep(1)
-data = json.dumps(jsonpage['data'])
-for i in data:
-    conn.c(
-        "INSERT INTO Computer_Parts(#VAR STUFF HERE#+#TABLE VALUES/DATA#)"
-    )
+#counter = 0
+#query = "#INSERT URL(S) HERE#"
+#jsonpage = 0
+#try:
+#    contents = urllib.request.urlopen(query)
+#    response = contents.read()
+#    jsonpage = json.loads(response)
+#except:
+#    pass
+#    time.sleep(1)
+#data = json.dumps(jsonpage['data'])
+#for i in data:
+#    conn.c(
+#        "INSERT INTO Computer_Parts(#VAR STUFF HERE#+#TABLE VALUES/DATA#)"
+#    )

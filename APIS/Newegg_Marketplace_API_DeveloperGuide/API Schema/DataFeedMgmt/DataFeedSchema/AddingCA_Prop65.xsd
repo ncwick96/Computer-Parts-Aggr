@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="NeweggEnvelope">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DocumentVersion" fixed="4.0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="MessageType" fixed="AddingCAProp65"/>
+				<xs:element name="Message">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Itemfeed" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Item" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="SellerPartNumber" minOccurs="1">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:minLength value="1"/>
+																<xs:maxLength value="40"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="NeweggItemNumber" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:minLength value="1"/>
+																<xs:maxLength value="40"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="WarningType_ID"><!--For available Warning type mapping, please visit: https://www.newegg.com/promotions/Marketplace/Sellers/resourceLibrary/Adding_CA_Prop65.pdf-->
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="103"/>
+																<xs:enumeration value="104"/>
+																<xs:enumeration value="105"/>
+																<xs:enumeration value="106"/>
+																<xs:enumeration value="107"/>
+																<xs:enumeration value="108"/>
+																<xs:enumeration value="109"/>
+																<xs:enumeration value="110"/>
+																<xs:enumeration value="111"/>
+																<xs:enumeration value="112"/>
+																<xs:enumeration value="113"/>
+																<xs:enumeration value="114"/>
+																<xs:enumeration value="115"/>
+																<xs:enumeration value="116"/>
+																<xs:enumeration value="117"/>
+																<xs:enumeration value="118"/>
+																<xs:enumeration value="119"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="ChemicalName_Carcinogen" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:minLength value="1"/>
+																<xs:maxLength value="600"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="ChemicalName_ReproductiveToxicant" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:minLength value="1"/>
+																<xs:maxLength value="600"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="ChemicalName_Both" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:minLength value="1"/>
+																<xs:maxLength value="600"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
