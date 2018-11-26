@@ -38,18 +38,18 @@ eb = "Ebay"; me = "Mouser_Electronics"; ppp = "Pc_Part_Picker"; ne = "New_Egg"
 # Runs with exit code 0, no errors, and now creates and writes to the db/table
 # Work in progress below
 
-#counter = 0
-#query = "https://www.newegg.com/"
-#jsonpage = 0
-#try:
+# counter = 0
+# query = "https://www.newegg.com/"
+# jsonpage = 0
+# try:
 #    contents = urllib.request.urlopen(query)
 #    response = contents.read()
 #    jsonpage = json.loads(response)
-#except:
+# except:
 #    pass
 #    time.sleep(1)
-#data = json.dumps(jsonpage(c))
-#for i in data:
+# data = json.dumps(jsonpage(c))
+# for i in data:
 #    conn.c(
 #        "INSERT INTO Computer_Parts(#VAR STUFF HERE#+#TABLE VALUES/DATA#)"
 #    )
